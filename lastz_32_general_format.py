@@ -45,7 +45,7 @@ def build_seq_dict_fasta(fasta_handle):
 def call_lastz_32(call):
     """
     Generic function that runs lastz on a string
-    And a path pointing to a 1-entry fasta file (usually a whole chromosome)
+    And a path pointing to a 1-entry fasta file (usually a whole genome)
     Returns the input in the lastz mapping- format
     """
     target_path, sequence, gene, chain = call
