@@ -78,7 +78,7 @@ def names_to_seqs(name_file, assembly, offset):
             for entry in this_gene:
                 entry = entry.split()
                 entry[1] = int(entry[1]) - offset
-                entry[2] = int(entry[2]) - offset
+                entry[2] = int(entry[2]) + offset
                 if name not in gene_regions:
                     gene_regions[name] = entry
                 elif gene_regions[name][2] - gene_regions[name][1] < entry[2] - entry[1]:
@@ -143,7 +143,7 @@ def call_lastz(call):
     Returns the input in the lastz mapping- format
     """
     target_path, sequence, gene = call
-    cmd = ["lastz", "--format=cigar" , target_path]
+    cmd = ["lastz", "--format=general:name1,zstart1,end1,name2,zstart2+,end2+,size2,identity,coverage,length1,length2,nmatch,nmismatch,cigarx-", "--ambiguous=n" , target_path]
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
     cmdout, cmderr = p.communicate(sequence)
     if p.returncode != 0:
