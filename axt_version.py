@@ -69,7 +69,7 @@ def call_lastz(call):
     Returns the input in the lastz mapping- format
     """
     target_path, sequence, gene = call
-    cmd = ["lastz", "--format=axt+", "--ambiguous=n" , target_path]
+    cmd = ["lastz_32", "--format=axt+", "--ambiguous=n", target_path, "[multiple]"]
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
     cmdout, cmderr = p.communicate(sequence)
     if p.returncode != 0:
