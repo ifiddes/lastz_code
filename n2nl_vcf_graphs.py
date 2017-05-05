@@ -110,10 +110,10 @@ def main(args):
     call = ["Rscript", "/cluster/home/ifiddes/code/n2nl_summary_barplots.R", args.summary, args.graph + "_summary.png"]
     p2 = subprocess.Popen(call)
 
-    while True:
-        time.sleep(10)
-        if p1.poll() and p1.poll():
-            break
+    #while True:
+    #    time.sleep(0.5)
+    #    if p1.poll() and p1.poll():
+    #        break
 
 
 if __name__ == "__main__":

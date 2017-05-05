@@ -11,11 +11,11 @@ par(mfrow=c(dim(data)[1]/6, 6))
 
 for (i in 1:dim(data)[1]) {
 	if (i %% 6 == 1) {
-		barplot(as.matrix(data[i,]), ylim=c(0,1), xaxt="n", ylab=strsplit(rownames(data)[1], split="_")[[1]][1])
+		barplot(as.matrix(data[i,]), ylim=c(0,1), xaxt="n", cex.axis=2, ylab=strsplit(rownames(data)[1], split="_")[[1]][1])
 	}
 	else {
 		barplot(as.matrix(data[i,]), ylim=c(0,1), axes=F, axisnames=F)
 	}
 }
 
-dev.off()
+graphics.off()
